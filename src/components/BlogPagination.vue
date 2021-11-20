@@ -14,20 +14,20 @@ export default {
   props: {
     align: { type: String, default: "center" },
     items: Array,
-    postsPerPage: { type: Number, default: 3 },
+    itemsPerPage: { type: Number, default: 3 },
   },
   data() {
     return {
       page: 1,
-      length: Math.ceil(this.items.length / this.postsPerPage),
+      length: Math.ceil(this.items.length / this.itemsPerPage),
     };
   },
   computed: {
     sliceItems() {
       return (page) =>
         this.items.slice(
-          (page - 1) * this.postsPerPage,
-          page * this.postsPerPage
+          (page - 1) * this.itemsPerPage,
+          page * this.itemsPerPage
         );
     },
   },

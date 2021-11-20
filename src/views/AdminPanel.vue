@@ -8,9 +8,15 @@
       </v-btn>
     </div>
 
-    <admin-table :posts="$store.getters.sortedByID"></admin-table>
+    <admin-table :posts="posts"></admin-table>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  computed: {
+    posts() {
+      return this.$store.getters.sortedByID;
+    },
+  },
+};
 </script>

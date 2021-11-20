@@ -7,10 +7,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      post: this.$store.getters.getByPostID(Number(this.$route.params.id)),
-    };
+  computed: {
+    post() {
+      return this.$store.getters.getByPostID(Number(this.$route.params.id));
+    },
   },
   methods: {
     updatePost(post) {

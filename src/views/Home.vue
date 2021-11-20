@@ -5,12 +5,10 @@
     <blog-pagination
       @paginate="paginate"
       :items="$store.state.posts"
-      :postsPerPage="postsPerPage"
+      :itemsPerPage="postsPerPage"
     ></blog-pagination>
 
-    <div class="posts-container my-10">
-      <blog-list :posts="postSlices"></blog-list>
-    </div>
+    <blog-list class="my-10" :posts="postSlice"></blog-list>
   </div>
 </template>
 
@@ -19,15 +17,19 @@ export default {
   data() {
     return {
       postsPerPage: 4,
-      postSlices: [],
+      postSlice: [],
     };
   },
   mounted() {
-    this.postSlices = this.$store.getters.paginate(0, this.postsPerPage);
+    // Page initialization
+    this.initPage(this.postsPerPage);
   },
   methods: {
     paginate(items) {
-      this.postSlices = items;
+      this.postSlice = items;
+    },
+    initPage(itemsPerPage) {
+      this.postSlice = this.$store.getters.getSlice(0, itemsPerPage);
     },
   },
 };

@@ -11,6 +11,7 @@
             <th class="text-left"></th>
           </tr>
         </thead>
+
         <tbody>
           <tr v-for="post in posts" :key="post.id">
             <td>{{ post.id }}</td>
@@ -28,7 +29,7 @@
                 >
                   <v-icon> mdi-pencil </v-icon>
                 </v-btn>
-                <v-btn fab x-small color="error" @click="removePost(post.id)">
+                <v-btn fab x-small color="error" @click="deletePost(post.id)">
                   <v-icon> mdi-trash-can </v-icon>
                 </v-btn>
               </div>
@@ -55,7 +56,7 @@ export default {
     };
   },
   methods: {
-    removePost(postID) {
+    deletePost(postID) {
       this.$store.dispatch("deletePost", { postID });
     },
   },

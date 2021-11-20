@@ -11,7 +11,7 @@ export default new Vuex.Store({
     sortedByID: (state) => state.posts.sort((a, b) => a - b),
     getByPostID: (state) => (postID) =>
       state.posts.find((post) => post.id === postID),
-    paginate: (state) => (currentPage, postPerPage) =>
+    getSlice: (state) => (currentPage, postPerPage) =>
       state.posts.slice(currentPage, postPerPage),
   },
   mutations: {
