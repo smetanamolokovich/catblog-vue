@@ -9,7 +9,7 @@
 export default {
   methods: {
     createPost(newPost) {
-      this.$store.commit("addNewPost", newPost);
+      this.$store.dispatch("createPost", { newPost });
       this.$router.push("/admin");
     },
   },

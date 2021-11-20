@@ -14,8 +14,7 @@ export default {
   },
   methods: {
     updatePost(post) {
-      console.log(post);
-      this.$store.commit("replacePost", post);
+      this.$store.dispatch("updatePost", { post });
       this.$router.push("/admin");
     },
   },

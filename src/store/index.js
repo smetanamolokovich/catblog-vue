@@ -15,13 +15,13 @@ export default new Vuex.Store({
       state.posts.slice(currentPage, postPerPage),
   },
   mutations: {
-    addNewPost: (state, post) => {
+    ADD_NEW_POST: (state, post) => {
       state.posts.push(post);
     },
-    removePost: (state, postID) => {
+    REMOVE_POST: (state, postID) => {
       state.posts = state.posts.filter((post) => post.id !== postID);
     },
-    replacePost: (state, post) => {
+    REPLACE_POST: (state, post) => {
       state.posts.splice(
         state.posts.indexOf(state.posts.find((p) => p.id === post.id)),
         1,
@@ -29,5 +29,15 @@ export default new Vuex.Store({
       );
     },
   },
-  actions: {},
+  actions: {
+    createPost(ctx, { newPost }) {
+      ctx.commit("ADD_NEW_POST", newPost);
+    },
+    deletePost(ctx, { postID }) {
+      ctx.commit("REMOVE_POST", postID);
+    },
+    updatePost(ctx, { post }) {
+      ctx.commit("REPLACE_POST", post);
+    },
+  },
 });

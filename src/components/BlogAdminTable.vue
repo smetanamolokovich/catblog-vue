@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     removePost(postID) {
-      this.$store.commit("removePost", postID);
+      this.$store.dispatch("deletePost", { postID });
     },
   },
 };
