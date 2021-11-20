@@ -4,7 +4,7 @@
 
     <blog-pagination
       @paginate="paginate"
-      :items="$store.state.posts"
+      :items="posts"
       :itemsPerPage="postsPerPage"
     ></blog-pagination>
 
@@ -21,8 +21,12 @@ export default {
     };
   },
   computed: {
-    getSlice() {
-      return (itemsPerPage) => this.$store.getters.getSlice(0, itemsPerPage);
+    posts() {
+      return this.$store.state.posts;
+    },
+    getPostsSlice() {
+      return (itemsPerPage) =>
+        this.$store.getters.getPostsSlice(0, itemsPerPage);
     },
   },
   mounted() {
@@ -34,7 +38,7 @@ export default {
       this.postSlice = items;
     },
     initPage(itemsPerPage) {
-      this.postSlice = this.getSlice(itemsPerPage);
+      this.postSlice = this.getPostsSlice(itemsPerPage);
     },
   },
 };

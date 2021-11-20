@@ -15,7 +15,7 @@
 export default {
   computed: {
     posts() {
-      return this.$store.getters.sortedByID;
+      return this.$store.getters.sortedByPostID;
     },
   },
 };

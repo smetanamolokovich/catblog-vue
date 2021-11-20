@@ -8,10 +8,10 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: { posts },
   getters: {
-    sortedByID: (state) => state.posts.sort((a, b) => a - b),
+    sortedByPostID: (state) => state.posts.sort((a, b) => a - b),
     getByPostID: (state) => (postID) =>
       state.posts.find((post) => post.id === postID),
-    getSlice: (state) => (currentPage, postPerPage) =>
+    getPostsSlice: (state) => (currentPage, postPerPage) =>
       state.posts.slice(currentPage, postPerPage),
   },
   mutations: {
