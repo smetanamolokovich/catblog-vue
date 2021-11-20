@@ -1,6 +1,6 @@
 # CATBLOG
 
-Blog web application built with VueJS.
+Blog web application built with Vue.js, Vuetify, Vuex.
 
 ![alt text](./screen.png?raw=true)
 
