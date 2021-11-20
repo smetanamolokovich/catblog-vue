@@ -20,6 +20,11 @@ export default {
       postSlice: [],
     };
   },
+  computed: {
+    getSlice() {
+      return (itemsPerPage) => this.$store.getters.getSlice(0, itemsPerPage);
+    },
+  },
   mounted() {
     // Page initialization
     this.initPage(this.postsPerPage);
@@ -29,7 +34,7 @@ export default {
       this.postSlice = items;
     },
     initPage(itemsPerPage) {
-      this.postSlice = this.$store.getters.getSlice(0, itemsPerPage);
+      this.postSlice = this.getSlice(itemsPerPage);
     },
   },
 };
