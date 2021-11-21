@@ -74,6 +74,11 @@ export default {
       },
     };
   },
+  computed: {
+    posts() {
+      return this.$store.state.posts;
+    },
+  },
   mounted() {
     if (this.postInput) {
       this.post = {
@@ -89,9 +94,14 @@ export default {
       this.$refs.form.validate();
 
       if (this.valid) {
-        const id =
-          this.postInput?.id ||
-          this.$store.state.posts[this.$store.state.posts.length - 1].id + 1;
+        let id;
+
+        if (this.posts.length) {
+          id = this.postInput?.id || this.posts[this.posts.length - 1].id + 1;
+        } else {
+          id = 1;
+        }
+
         const createdAt =
           this.postInput?.createdAt || moment().format("DD/MM/YYYY, hh:mm A");
 

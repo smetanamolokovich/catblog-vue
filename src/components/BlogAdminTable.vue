@@ -4,27 +4,25 @@
       <template v-slot:default>
         <thead>
           <tr>
-            <th class="text-left">ID</th>
             <th class="text-left">Title</th>
-            <th class="text-left">Author</th>
-            <th class="text-left">Date</th>
-            <th class="text-left"></th>
+            <th class="text-left hidden-xs-only">Author</th>
+            <th class="text-left hidden-md-and-down">Date</th>
+            <th class="text-center">Actions</th>
           </tr>
         </thead>
 
         <tbody>
           <tr v-for="post in posts" :key="post.id">
-            <td>{{ post.id }}</td>
             <td>{{ post.title }}</td>
-            <td>{{ post.author }}</td>
-            <td>{{ post.createdAt }}</td>
-            <td>
+            <td class="hidden-xs-only">{{ post.author }}</td>
+            <td class="hidden-md-and-down">{{ post.createdAt }}</td>
+            <td style="width: 111px">
               <div class="text-center">
                 <v-btn
                   fab
                   x-small
                   color="warning"
-                  class="mr-5"
+                  class="mr-2"
                   @click="$router.push(`/update/${post.id}`)"
                 >
                   <v-icon> mdi-pencil </v-icon>

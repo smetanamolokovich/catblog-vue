@@ -15,7 +15,7 @@
       </p>
 
       <div class="text-center">
-        <v-btn class="ma-2" outlined @click="$router.push('/')">
+        <v-btn class="ma-2" plain @click="$router.push('/')">
           <v-icon left> mdi-arrow-left-top </v-icon>Back to homepage
         </v-btn>
       </div>
