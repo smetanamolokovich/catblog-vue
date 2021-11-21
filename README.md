@@ -1,16 +1,8 @@
 # CATBLOG
 
+[Technical task]
+
 Blog web application built with Vue.js, Vuetify, Vuex.
-
-![alt text](./screen.png?raw=true)
-
-## Main funtions
-
--   Creating a new blog post
--   Editing blog post
--   Deleting blog post
--   List blog posts
--   View blog post detail
 
 ## Project setup
 
